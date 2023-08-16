@@ -16,7 +16,13 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var feedContent: UILabel!
     @IBOutlet var feedLikeBtn: UIButton!
     
-    var feedLikeBtnState = true
+    func feedSetUp(with feedElement: FeedList) {
+        feedTitle.text = feedElement.title
+        feedContent.text = feedElement.content
+        feedCoverImage.image = UIImage(named: feedElement.feedImageName)
+        feedUserProfile.image = UIImage(named: feedElement.userProfile)
+        feedUserName.text = feedElement.userName
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,17 +36,19 @@ class FeedTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // 좋아요 버튼 클릭 함수
     @IBAction func clickFeedLikeBtn(_ sender: Any) {
         
-        if feedLikeBtnState {
+        if feedLikeBtn.isSelected {
             feedLikeBtn.setImage(UIImage(named: "like.fill"), for: .normal)
+            feedLikeBtn.isSelected = false
         }
         
         else {
             feedLikeBtn.setImage(UIImage(named: "like.empty"), for: .normal)
+            feedLikeBtn.isSelected = true
         }
-        
-        feedLikeBtnState.toggle()
     }
     
 }
