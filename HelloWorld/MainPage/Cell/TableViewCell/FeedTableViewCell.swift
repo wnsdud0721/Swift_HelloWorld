@@ -48,6 +48,7 @@ class FeedTableViewCell: UITableViewCell {
         else {
             feedLikeBtn.setImage(UIImage(named: "like.empty"), for: .normal)
             feedLikeBtn.isSelected = true
+            
         }
     }
     

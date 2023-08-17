@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		101D6E362A8D15E80099654D /* StroyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D6E352A8D15E80099654D /* StroyList.swift */; };
+		1059B3322A8E01C000023E1A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059B3312A8E01C000023E1A /* TestViewController.swift */; };
+		1059B3352A8E02A800023E1A /* SeperateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059B3332A8E02A800023E1A /* SeperateTableViewCell.swift */; };
+		1059B3362A8E02A800023E1A /* SeperateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1059B3342A8E02A800023E1A /* SeperateTableViewCell.xib */; };
 		10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */; };
 		10D0948A2A8C686600E54766 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D094882A8C686600E54766 /* FeedTableViewCell.swift */; };
 		10D0948B2A8C686600E54766 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D094892A8C686600E54766 /* FeedTableViewCell.xib */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		101D6E352A8D15E80099654D /* StroyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroyList.swift; sourceTree = "<group>"; };
+		1059B3312A8E01C000023E1A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		1059B3332A8E02A800023E1A /* SeperateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeperateTableViewCell.swift; path = HelloWorld/MainPage/Cell/TableViewCell/SeperateTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		1059B3342A8E02A800023E1A /* SeperateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SeperateTableViewCell.xib; path = HelloWorld/MainPage/Cell/TableViewCell/SeperateTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		10D094882A8C686600E54766 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		10D094892A8C686600E54766 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -67,15 +73,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10D094872A8C683900E54766 /* Cell */ = {
+		1059B3372A8E09ED00023E1A /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				1059B3332A8E02A800023E1A /* SeperateTableViewCell.swift */,
+				1059B3342A8E02A800023E1A /* SeperateTableViewCell.xib */,
 				10D094882A8C686600E54766 /* FeedTableViewCell.swift */,
 				10D094892A8C686600E54766 /* FeedTableViewCell.xib */,
 				10D0948C2A8C92A000E54766 /* StoryTableViewCell.swift */,
 				10D0948D2A8C92A000E54766 /* StoryTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		1059B3382A8E0A0B00023E1A /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				10D094902A8C9A2500E54766 /* StoryCollectionViewCell.swift */,
 				10D094912A8C9A2500E54766 /* StoryCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		10D094872A8C683900E54766 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1059B3372A8E09ED00023E1A /* TableViewCell */,
+				1059B3382A8E0A0B00023E1A /* CollectionViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -120,6 +144,7 @@
 			children = (
 				10D094872A8C683900E54766 /* Cell */,
 				10D534042A89FE8800A7D17A /* MainPage.storyboard */,
+				1059B3312A8E01C000023E1A /* TestViewController.swift */,
 				10D29B7E2A8A23D300AEF72F /* MainPageViewController.swift */,
 				10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */,
 				10D094942A8CFB3100E54766 /* FeedList.swift */,
@@ -220,6 +245,7 @@
 			files = (
 				10D0948B2A8C686600E54766 /* FeedTableViewCell.xib in Resources */,
 				10D534052A89FE8800A7D17A /* MainPage.storyboard in Resources */,
+				1059B3362A8E02A800023E1A /* SeperateTableViewCell.xib in Resources */,
 				10D534072A89FEA900A7D17A /* DetailPage.storyboard in Resources */,
 				10D0948F2A8C92A000E54766 /* StoryTableViewCell.xib in Resources */,
 				10D533FD2A89FE6B00A7D17A /* LaunchScreen.storyboard in Resources */,
@@ -241,6 +267,7 @@
 			files = (
 				10D29B7F2A8A23D300AEF72F /* MainPageViewController.swift in Sources */,
 				10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */,
+				1059B3322A8E01C000023E1A /* TestViewController.swift in Sources */,
 				10D094952A8CFB3100E54766 /* FeedList.swift in Sources */,
 				101D6E362A8D15E80099654D /* StroyList.swift in Sources */,
 				10D533F52A89FE6900A7D17A /* ViewController.swift in Sources */,
@@ -248,6 +275,7 @@
 				10D533F32A89FE6900A7D17A /* SceneDelegate.swift in Sources */,
 				10D0948A2A8C686600E54766 /* FeedTableViewCell.swift in Sources */,
 				10D094922A8C9A2500E54766 /* StoryCollectionViewCell.swift in Sources */,
+				1059B3352A8E02A800023E1A /* SeperateTableViewCell.swift in Sources */,
 				10D0948E2A8C92A000E54766 /* StoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,11 +25,14 @@ class MainPageViewController: UIViewController {
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         // TableView에 FeedTableViewCell 등록
         mainPageTableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
-        
-        // 빌드시에 xib가 nib
+
         let storyNib = UINib(nibName: "StoryTableViewCell", bundle: nil)
         // TableView에 StoryTableViewCell 등록
         mainPageTableView.register(storyNib, forCellReuseIdentifier: "StoryTableViewCell")
+
+        let seperateNib = UINib(nibName: "SeperateTableViewCell", bundle: nil)
+        // TableView에 SeperateTableViewCell 등록
+        mainPageTableView.register(seperateNib, forCellReuseIdentifier: "SeperateTableViewCell")
     }
 
     @IBAction func moveCreatePageVC(_ sender: Any) {
@@ -46,8 +49,8 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     // TableView에 보여질 데이터 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // 스토리 개수 + 피드 개수
-        let numberOfRows = 1 + feedListData.count
+        // 스토리 개수 + 구분선 개수 + 피드 개수
+        let numberOfRows = 2 + feedListData.count
         
         return numberOfRows
     }
@@ -62,15 +65,22 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return storyTableViewCell
         }
+        else if indexPath.row == 1 {
+            guard let seperateTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SeperateTableViewCell", for: indexPath) as? SeperateTableViewCell else {
+                return UITableViewCell()
+            }
+            return seperateTableViewCell
+        }
         else {
             guard let feedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
                 return UITableViewCell()
             }
             
-            //feedTableViewCell.selectionStyle = .none
+            // 피드 리스트의 0번째 배열부터 보여주기 위해서 indexPath.row - 2
+            feedTableViewCell.feedSetUp(with: feedListData[indexPath.row - 2])
             
-            // 피드 리스트의 0번째 배열부터 보여주기 위해서 indexPath.row - 1
-            feedTableViewCell.feedSetUp(with: feedListData[indexPath.row - 1])
+            // Cell 클릭 시, 회색으로 변하지 않도록 함
+            feedTableViewCell.selectionStyle = .none
             
             return feedTableViewCell
         }
@@ -79,7 +89,10 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     // TableViewCell의 높이 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 111
+            return 107
+        }
+        else if indexPath.row == 1 {
+            return 0.5
         }
         else {
             return 540
@@ -94,6 +107,17 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
         
 //        storyTableViewCell.setStoryCollectionView(dataSourceDelegate: self, forRow: indexPath.row)
         storyTableViewCell.setStoryCollectionView(dataSourceDelegate: self)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row > 1 {
+            guard let moveTestVC = self.storyboard?.instantiateViewController(identifier: "TestViewController") as? TestViewController else { return }
+            moveTestVC.modalTransitionStyle = .coverVertical
+            moveTestVC.modalPresentationStyle = .fullScreen
+            self.present(moveTestVC, animated: true, completion: nil)
+            
+            moveTestVC.testLabel.text = feedListData[indexPath.row - 2].title
+        }
     }
 }
 
@@ -119,10 +143,12 @@ extension MainPageViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 72, height: 103)
     }
     
+    // CollectionViewCell 섹션의 마진 값 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
     
+    // CollectionViewCell 사이의 간격 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8
     }

@@ -32,12 +32,12 @@ class StoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        // 회색 줄을 생성하고 스타일을 설정
-        footerView = UIView(frame: CGRect(x: 0, y: storyCollectionView.frame.height - 1, width: storyCollectionView.frame.width, height: 0.5))
-        footerView.backgroundColor = UIColor.lightGray
-        
-        // 컬렉션 뷰의 뷰 계층 구조에 추가
-        storyCollectionView.addSubview(footerView)
+//        // 회색 줄을 생성하고 스타일을 설정
+//        footerView = UIView(frame: CGRect(x: 0, y: storyCollectionView.frame.height - 1, width: storyCollectionView.frame.width, height: 0.5))
+//        footerView.backgroundColor = UIColor.lightGray
+//
+//        // 컬렉션 뷰의 뷰 계층 구조에 추가
+//        storyCollectionView.addSubview(footerView)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,11 +46,11 @@ class StoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override func layoutSubviews() {
-            super.layoutSubviews()
-
-            // footerView의 위치를 업데이트
-            footerView.frame.origin.y = storyCollectionView.contentSize.height - 1
-            footerView.frame.size.width = storyCollectionView.contentSize.width
-        }
+//    override func layoutSubviews() {
+//            super.layoutSubviews()
+//
+//            // footerView의 위치를 업데이트
+//            footerView.frame.origin.y = storyCollectionView.contentSize.height - 1
+//            footerView.frame.size.width = storyCollectionView.contentSize.width
+//        }
 }
