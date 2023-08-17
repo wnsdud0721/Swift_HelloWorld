@@ -34,10 +34,12 @@ class MainPageViewController: UIViewController {
 
 }
 
+// TableView Extension
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     // TableView에 보여질 데이터 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //var numberOfRows = feedListData.count + 1
         return feedListData.count
     }
     
@@ -82,15 +84,17 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// CollectionView Extension
 extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return storyListData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let storyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell else {
             return UICollectionViewCell()
         }
+        storyCollectionViewCell.storySetUp(with: storyListData[indexPath.row])
         return storyCollectionViewCell
     }
     

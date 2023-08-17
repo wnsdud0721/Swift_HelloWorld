@@ -12,6 +12,12 @@ class StoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var storyUserProfile: UIImageView!
     @IBOutlet var storyUserName: UILabel!
     
+    
+    func storySetUp(with storyElement: StoryList) {
+        storyUserName.text = storyElement.friendName
+        storyUserProfile.image = UIImage(named: storyElement.friendProfile)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +25,4 @@ class StoryCollectionViewCell: UICollectionViewCell {
         // 프로필 원형으로 만들기
         storyUserProfile.layer.cornerRadius = storyUserProfile.frame.height/2
     }
-
 }
