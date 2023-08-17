@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		101D6E362A8D15E80099654D /* StroyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D6E352A8D15E80099654D /* StroyList.swift */; };
+		10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */; };
 		10D0948A2A8C686600E54766 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D094882A8C686600E54766 /* FeedTableViewCell.swift */; };
 		10D0948B2A8C686600E54766 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D094892A8C686600E54766 /* FeedTableViewCell.xib */; };
 		10D0948E2A8C92A000E54766 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0948C2A8C92A000E54766 /* StoryTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		101D6E352A8D15E80099654D /* StroyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroyList.swift; sourceTree = "<group>"; };
+		10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		10D094882A8C686600E54766 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		10D094892A8C686600E54766 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		10D0948C2A8C92A000E54766 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				10D094872A8C683900E54766 /* Cell */,
 				10D534042A89FE8800A7D17A /* MainPage.storyboard */,
 				10D29B7E2A8A23D300AEF72F /* MainPageViewController.swift */,
+				10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */,
 				10D094942A8CFB3100E54766 /* FeedList.swift */,
 				101D6E352A8D15E80099654D /* StroyList.swift */,
 			);
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D29B7F2A8A23D300AEF72F /* MainPageViewController.swift in Sources */,
+				10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */,
 				10D094952A8CFB3100E54766 /* FeedList.swift in Sources */,
 				101D6E362A8D15E80099654D /* StroyList.swift in Sources */,
 				10D533F52A89FE6900A7D17A /* ViewController.swift in Sources */,

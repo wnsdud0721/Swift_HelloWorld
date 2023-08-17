@@ -32,6 +32,12 @@ class MainPageViewController: UIViewController {
         mainPageTableView.register(storyNib, forCellReuseIdentifier: "StoryTableViewCell")
     }
 
+    @IBAction func moveCreatePageVC(_ sender: Any) {
+        guard let moveCreatePageVC = self.storyboard?.instantiateViewController(identifier: "CreatePageViewController") else {return}
+        moveCreatePageVC.modalTransitionStyle = .coverVertical
+        moveCreatePageVC.modalPresentationStyle = .fullScreen
+        self.present(moveCreatePageVC, animated: true, completion: nil)
+    }
 }
 
 // TableView Extension
@@ -39,8 +45,11 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     // TableView에 보여질 데이터 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //var numberOfRows = feedListData.count + 1
-        return feedListData.count
+        
+        // 스토리 개수 + 피드 개수
+        let numberOfRows = 1 + feedListData.count
+        
+        return numberOfRows
     }
     
     // 각 cell이 어떻게 보여질 것인가
@@ -57,8 +66,12 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             guard let feedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
                 return UITableViewCell()
             }
-            feedTableViewCell.feedSetUp(with: feedListData[indexPath.row])
+            
             //feedTableViewCell.selectionStyle = .none
+            
+            // 피드 리스트의 0번째 배열부터 보여주기 위해서 indexPath.row - 1
+            feedTableViewCell.feedSetUp(with: feedListData[indexPath.row - 1])
+            
             return feedTableViewCell
         }
     }
@@ -85,7 +98,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // CollectionView Extension
-extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return storyListData.count
     }
@@ -97,9 +110,20 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         storyCollectionViewCell.storySetUp(with: storyListData[indexPath.row])
         return storyCollectionViewCell
     }
+}
+
+extension MainPageViewController: UICollectionViewDelegateFlowLayout {
     
     // CollectionViewCell 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 72, height: 103)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
     }
 }

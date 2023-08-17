@@ -24,13 +24,6 @@ class StoryTableViewCell: UITableViewCell {
         let storyNib = UINib(nibName: "StoryCollectionViewCell", bundle: nil)
         storyCollectionView.register(storyNib, forCellWithReuseIdentifier: "StoryCollectionViewCell")
         
-//        let storyFlowLayout = UICollectionViewFlowLayout()
-//        storyFlowLayout.scrollDirection = .horizontal
-//        storyFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-//        storyFlowLayout.minimumLineSpacing = 12
-//        
-//        storyCollectionView.collectionViewLayout = storyFlowLayout
-        
         storyCollectionView.reloadData()
     }
     

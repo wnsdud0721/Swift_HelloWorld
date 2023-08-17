@@ -24,7 +24,6 @@ class FeedList {
 }
 
 let feedListData: [FeedList] = [
-    FeedList(userName: "예비", userProfile: "예비", title: "예비", content: "예비", feedImageName: "예비"),
     FeedList(userName: "홍준영", userProfile: "profile1", title: "CollectionView란?", content: "오늘은 CollectionView에 대해서 공부했습니다.", feedImageName: "feed1"),
     FeedList(userName: "정동교", userProfile: "profile2", title: "TableView란?", content: "TableView에 대해서 알아봅시다!!", feedImageName: "feed2"),
     FeedList(userName: "김도윤", userProfile: "profile3", title: "화면 생명주기에 대하여", content: "너무 어렵고 복잡한 생명주기.", feedImageName: "feed3"),
