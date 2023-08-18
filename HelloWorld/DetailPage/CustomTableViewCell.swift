@@ -19,6 +19,6 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameCell: UILabel!
     
     
-  
+  // 여긴 추가 안할거야
     
 }
