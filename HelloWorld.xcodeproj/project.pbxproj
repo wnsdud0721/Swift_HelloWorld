@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078054C12A8E044C0016BC46 /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078054C02A8E044C0016BC46 /* Struct.swift */; };
 		10D533F12A89FE6900A7D17A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D533F02A89FE6900A7D17A /* AppDelegate.swift */; };
 		10D533F32A89FE6900A7D17A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D533F22A89FE6900A7D17A /* SceneDelegate.swift */; };
 		10D533F52A89FE6900A7D17A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D533F42A89FE6900A7D17A /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078054C02A8E044C0016BC46 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		10D533ED2A89FE6900A7D17A /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D533F02A89FE6900A7D17A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10D533F22A89FE6900A7D17A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,18 +68,14 @@
 		10D533EF2A89FE6900A7D17A /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
+				10D533FE2A89FE6B00A7D17A /* Info.plist */,
 				10D534082A89FEB300A7D17A /* MainPage */,
-				10D534092A89FEBC00A7D17A /* DetailPage */,
 				10D5340C2A89FED900A7D17A /* CreatePage */,
 				10D5340F2A89FF0000A7D17A /* MyPage */,
 				10D534122A89FF2100A7D17A /* EditMyPage */,
-				10D533F02A89FE6900A7D17A /* AppDelegate.swift */,
-				10D533F22A89FE6900A7D17A /* SceneDelegate.swift */,
-				10D533F42A89FE6900A7D17A /* ViewController.swift */,
 				10D533F62A89FE6900A7D17A /* Main.storyboard */,
-				10D533F92A89FE6B00A7D17A /* Assets.xcassets */,
 				10D533FB2A89FE6B00A7D17A /* LaunchScreen.storyboard */,
-				10D533FE2A89FE6B00A7D17A /* Info.plist */,
+				10D534092A89FEBC00A7D17A /* DetailPage */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -102,6 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				10D5340A2A89FED500A7D17A /* CreatePage.storyboard */,
+				10D533F42A89FE6900A7D17A /* ViewController.swift */,
+				10D533F22A89FE6900A7D17A /* SceneDelegate.swift */,
+				10D533F92A89FE6B00A7D17A /* Assets.xcassets */,
+				10D533F02A89FE6900A7D17A /* AppDelegate.swift */,
+				078054C02A8E044C0016BC46 /* Struct.swift */,
 			);
 			path = CreatePage;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D533F52A89FE6900A7D17A /* ViewController.swift in Sources */,
+				078054C12A8E044C0016BC46 /* Struct.swift in Sources */,
 				10D533F12A89FE6900A7D17A /* AppDelegate.swift in Sources */,
 				10D533F32A89FE6900A7D17A /* SceneDelegate.swift in Sources */,
 			);
