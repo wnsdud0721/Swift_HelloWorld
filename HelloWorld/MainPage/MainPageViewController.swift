@@ -50,7 +50,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // 스토리 개수 + 구분선 개수 + 피드 개수
-        let numberOfRows = 2 + feedListData.count
+        let numberOfRows = 2 + userInfoData[0].myFeedList.count
         
         return numberOfRows
     }
@@ -77,7 +77,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             // 피드 리스트의 0번째 배열부터 보여주기 위해서 indexPath.row - 2
-            feedTableViewCell.feedSetUp(with: feedListData[indexPath.row - 2])
+            feedTableViewCell.feedSetUp(with: userInfoData[0].myFeedList[indexPath.row - 2])
             
             // Cell 클릭 시, 회색으로 변하지 않도록 함
             feedTableViewCell.selectionStyle = .none
@@ -116,7 +116,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
             moveTestVC.modalPresentationStyle = .fullScreen
             self.present(moveTestVC, animated: true, completion: nil)
             
-            moveTestVC.testLabel.text = feedListData[indexPath.row - 2].title
+            moveTestVC.testLabel.text = userInfoData[0].myFeedList[indexPath.row - 2].title
         }
     }
 }
@@ -124,14 +124,14 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
 // CollectionView Extension
 extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storyListData.count
+        return userInfoData[0].friend.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let storyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        storyCollectionViewCell.storySetUp(with: storyListData[indexPath.row])
+        storyCollectionViewCell.storySetUp(with: userInfoData[0].friend[indexPath.row])
         return storyCollectionViewCell
     }
 }

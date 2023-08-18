@@ -94,7 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         //새로운feed객체생성&유저디폴트 사용자이름 가져와 해당 사용자에게 피드 추가
-        let newFeed = Feed(image: image, title: title, content: content)
+        let newFeed = feedList(title: <#T##String#>, content: <#T##String#>, feedImageName: <#T##String#>, commentIndex: <#T##[comment]#>, userProfile: <#T##String#>, userName: <#T##String#>)
         if let currentUserName = UserDefaults.standard.string(forKey: "currentUserName") {
             appendFeedToUser(userName: currentUserName, newFeed: newFeed)
         } else {
@@ -112,7 +112,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resetInputFields()
     }
      //이미지 저장&해당파일 가져옴
-    func convertFeedToFeedList(feed: Feed) -> feedList? {
+    func convertFeedToFeedList(feed: feedList) -> feedList? {
         guard let feedImageName = saveImageAndGetFilename(image: feed.image) else {
             return nil
         }

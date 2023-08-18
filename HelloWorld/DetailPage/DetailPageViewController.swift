@@ -10,47 +10,6 @@ import UIKit
 class DetailPageViewController: UIViewController {
     
 
-    class userInfoList  {
-        var userName : String
-        var profileImageName :String
-        var freind : Array<String>
-        var info : String
-        var myFeedList : [feedList]
-        init(userName: String, profileImageName: String, freind: Array<String>, info: String, myFeedList: [feedList]) {
-            self.userName = userName
-            self.profileImageName = profileImageName
-            self.freind = freind
-            self.info = info
-            self.myFeedList = myFeedList
-        }
-    }
-
-    class feedList  {
-        var title : String
-        var content : String
-        var feedImageName : String
-        var commentIndex : [comment]
-        init(title: String, content: String, feedImageName: String, commentIndex: [comment]) {
-            self.title = title
-            self.content = content
-            self.feedImageName = feedImageName
-            self.commentIndex = commentIndex
-        }
-    }
-
-    class comment  {
-        var commentContent : String
-        var userName : String
-        init(commentContent: String, userName: String) {
-            self.commentContent = commentContent
-            self.userName = userName
-        }
-    }
-
-
-    var userInfoData : [userInfoList] = [userInfoList(userName : "김민수", profileImageName: "Desktop/갤러리/사진.jpg", freind: ["김영미"], info: "개발자가 되고 싶은 김민수 입니다.", myFeedList: [feedList(title : "맛있는 하루", content: "대충 맛있는 곳asdfasdfasdfasdfasdfasdfasdf대충 맛있는  곳asdfasdfasdfasdfasdfasdfasdf대충 맛있는 곳asdfasdfasdfasdfasdfasdfasdf대충 맛있는 곳asdfasdfasdfasdfasdfasdfasdf", feedImageName: "사진", commentIndex : [comment( commentContent: "댓글1", userName: "김민수")]),feedList(title : "맛있는 이틀", content: "그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳그런곳", feedImageName: "사진", commentIndex : [comment( commentContent: "댓글1", userName: "김민수"),comment( commentContent: "댓글길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게길게2", userName: "김민수"),comment( commentContent: "댓글3", userName: "김영미"),comment( commentContent: "댓글4", userName: "김영미")])]),userInfoList(userName : "김영미", profileImageName: "사진", freind: ["김민수"], info: "아 ㅋㅋ 쉬고싶다", myFeedList: [feedList(title : "영미야!!", content: "오늘 쉬는날", feedImageName: "사진", commentIndex : [comment( commentContent: "댓글1", userName: "김민수")]),feedList(title : "내일도 쉬는날", content: "좋다!", feedImageName: "사진", commentIndex : [comment( commentContent: "댓글1", userName: "김민수")])])]
-
-    var dataIndex = [0,1]
     
     var likeButtonBool = false
     
@@ -69,6 +28,7 @@ class DetailPageViewController: UIViewController {
     
     @IBAction func likeButton(_ sender: Any) {
         if (likeButtonBool == false) {
+            
             likeButtonBool = true
         }else{
             likeButtonBool = false
@@ -82,7 +42,7 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var commentTextFeild: UITextView!
     
     
-    @IBAction func commentDoneButton(_ sender: Any) {
+    @IBAction func commentDonButton(_ sender: Any) {
         if (commentTextFeild.text == "") {
 
         }else
@@ -95,9 +55,8 @@ class DetailPageViewController: UIViewController {
 
         self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
         self.commentTextFeild.resignFirstResponder()
-
     }
-
+  
     
     override func viewDidLoad() {
         

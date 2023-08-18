@@ -16,7 +16,23 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var feedContent: UILabel!
     @IBOutlet var feedLikeBtn: UIButton!
     
-    func feedSetUp(with feedElement: FeedList) {
+//    class UserInfoList {
+//        var userName : String
+//        var profileImageName :String
+//        var friend : [Friend]?
+//        var info : String
+//        var myFeedList : [feedList]?
+//        init(userName: String, profileImageName: String, friend: [Friend]? = nil, info: String, myFeedList: [feedList]? = nil) {
+//            self.userName = userName
+//            self.profileImageName = profileImageName
+//            self.friend = friend
+//            self.info = info
+//            self.myFeedList = myFeedList
+//        }
+//    }
+    
+    
+    func feedSetUp(with feedElement: feedList) {
         feedTitle.text = feedElement.title
         feedContent.text = feedElement.content
         feedCoverImage.image = UIImage(named: feedElement.feedImageName)

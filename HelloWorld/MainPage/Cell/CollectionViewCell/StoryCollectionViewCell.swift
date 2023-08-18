@@ -13,9 +13,9 @@ class StoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var storyUserName: UILabel!
     
     
-    func storySetUp(with storyElement: StoryList) {
-        storyUserName.text = storyElement.friendName
-        storyUserProfile.image = UIImage(named: storyElement.friendProfile)
+    func storySetUp(with storyElement: Friend) {
+        storyUserName.text = storyElement.name
+        storyUserProfile.image = UIImage(named: storyElement.profileName)
     }
     
     override func awakeFromNib() {
