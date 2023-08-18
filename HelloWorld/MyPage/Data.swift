@@ -33,11 +33,16 @@ class Friend {
 }
 
 class FeedList {
-    var title : String
-    var content : String
-    var feedImageName : String
-    var commentIndex : [comment]?
-    init(title: String, content: String, feedImageName: String, commentIndex: [comment]? = nil) {
+    var userName: 
+    var userProfile: String
+    var title: String
+    var content: String
+    var commentIndex: Int?
+    var feedImageName: String
+    
+    init(userName: String, userProfile: String, title: String, content: String, feedImageName: String, commentIndex: Int? = nil) {
+        self.userName = userName
+        self.userProfile = userProfile
         self.title = title
         self.content = content
         self.feedImageName = feedImageName
