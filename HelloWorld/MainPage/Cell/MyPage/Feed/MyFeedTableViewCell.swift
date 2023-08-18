@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedTableViewCell: UITableViewCell {
+class MyFeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var feedCollectionView: UICollectionView!
 
@@ -18,30 +18,30 @@ class FeedTableViewCell: UITableViewCell {
         feedCollectionView.dataSource = self
         feedCollectionView.delegate = self
         
-        let feedNib = UINib(nibName: "FeedCollectionViewCell", bundle: nil)
-        feedCollectionView.register(feedNib, forCellWithReuseIdentifier: "FeedCollectionViewCell")
+        let feedNib = UINib(nibName: "MyFeedCollectionViewCell", bundle: nil)
+        feedCollectionView.register(feedNib, forCellWithReuseIdentifier: "MyFeedCollectionViewCell")
         
         feedCollectionView.reloadData()
     }
 }
 
-extension FeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MyFeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyPageViewController.userInfoData.myFeedList?.count ?? 0
+        return userInfoData[0].myFeedList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "FeedCollectionViewCell", for: indexPath) as! FeedCollectionViewCell
+        let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "MyFeedCollectionViewCell", for: indexPath) as! MyFeedCollectionViewCell
         
-        if let feedInfo = MyPageViewController.userInfoData.myFeedList?[indexPath.row] {
-            cell.feedSetup(myFeedImage: feedInfo)
-        }
+        let feedInfo = userInfoData[0].myFeedList[indexPath.row]
+        
+        cell.feedSetup(myFeedImage: feedInfo)
         
         return cell
     }
 }
 
-extension FeedTableViewCell: UICollectionViewDelegateFlowLayout {
+extension MyFeedTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedCollectionViewCell: UICollectionViewCell {
+class MyFeedCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var feedImage: UIImageView!
     
@@ -16,7 +16,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func feedSetup(myFeedImage: FeedList) {
+    func feedSetup(myFeedImage: feedList) {
         feedImage.image = UIImage(named: myFeedImage.feedImageName)
     }
 

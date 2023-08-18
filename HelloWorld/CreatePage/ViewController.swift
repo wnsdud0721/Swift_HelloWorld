@@ -19,6 +19,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var contentTextView: UITextView!
     weak var delegate: FeedDataDelegate?
     
+    @IBAction func backMainPage(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -94,7 +97,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         //새로운feed객체생성&유저디폴트 사용자이름 가져와 해당 사용자에게 피드 추가
-        let newFeed = feedList(title: <#T##String#>, content: <#T##String#>, feedImageName: <#T##String#>, commentIndex: <#T##[comment]#>, userProfile: <#T##String#>, userName: <#T##String#>)
+        let newFeed = feedList(title: "타이틀", content: "컨텐트", feedImageName: "사진", commentIndex: [comment(commentContent: "댓글", userName: "김미영")], userProfile: "사진", userName: "김민수")
+        
         if let currentUserName = UserDefaults.standard.string(forKey: "currentUserName") {
             appendFeedToUser(userName: currentUserName, newFeed: newFeed)
         } else {
@@ -112,14 +116,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resetInputFields()
     }
      //이미지 저장&해당파일 가져옴
-    func convertFeedToFeedList(feed: feedList) -> feedList? {
-        guard let feedImageName = saveImageAndGetFilename(image: feed.image) else {
+    func convertFeedToFeedList(feed: feedList ) -> feedList? {
+        guard saveImageAndGetFilename(image: UIImage(named: feed.feedImageName)!) != nil else {
             return nil
         }
 
-        let commentIndex: [comment] = []
-
-        return feedList(title: feedImageName, content: feed.title, feedImageName: feed.content, commentIndex: commentIndex)
+        
+        return feedList(title: feed.title, content: feed.content, feedImageName: feed.feedImageName, commentIndex: [] , userProfile: userInfoData[0].profileImageName, userName: userInfoData[0].userName)
     }
 
     // 이미지 저장&파일이름 반환
@@ -134,18 +137,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return nil
     }
 
-    func appendFeedToUser(userName: String, newFeed: Feed) {
+    func appendFeedToUser(userName: String, newFeed: feedList) {
         guard let convertedFeed = convertFeedToFeedList(feed: newFeed) else {
             print("Failed to convert feed to feedList!")
             return
         }
         
-        if let index = userInfoData.firstIndex(where: { $0.userName == userName }) {
-            userInfoData[index].myFeedList.append(convertedFeed)
-            print("New feed added to \(userName)'s feed list!")
-        } else {
-            print("\(userName) not found in userInfoData!")
-        }
+//        if let index =
+//            userInfoData.firstIndex(where: { $0.userName == userName }) {
+            userInfoData[0].myFeedList.append(convertedFeed)
+//            print("New feed added to \(userName)'s feed list!")
+//        } else {
+//            print("\(userName) not found in userInfoData!")
+//        }
     }
 
     func saveDataToUserDefaults(image: UIImage, title: String, content: String) {

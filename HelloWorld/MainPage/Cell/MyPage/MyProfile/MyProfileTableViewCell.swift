@@ -20,7 +20,7 @@ class MyProfileTableViewCell: UITableViewCell {
     func myProfileSetup(myInfo: UserInfoList) {
         userName.text = myInfo.userName
         userImage.image = UIImage(named: myInfo.profileImageName)
-        postCount.text = String(myInfo.myFeedList!.count)
+        postCount.text = String(myInfo.myFeedList.count)
         userInfo.text = myInfo.info
     }
 

@@ -41,13 +41,13 @@ class FriendTableViewCell: UITableViewCell {
 
 extension FriendTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MyPageViewController.friend.count
+        return userInfoData[0].friend.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = friendCollectionView.dequeueReusableCell(withReuseIdentifier: "FriendCollectionViewCell", for: indexPath) as! FriendCollectionViewCell
         
-        let friendInfo = MyPageViewController.friend[indexPath.row]
+        let friendInfo = userInfoData[0].friend[indexPath.row]
         cell.friendSetup(friendInfo: friendInfo)
         
         return cell

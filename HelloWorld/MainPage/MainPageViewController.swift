@@ -36,12 +36,20 @@ class MainPageViewController: UIViewController {
     }
 
     @IBAction func moveCreatePageVC(_ sender: Any) {
-        guard let moveCreatePageVC = self.storyboard?.instantiateViewController(identifier: "CreatePageViewController") else {return}
-        moveCreatePageVC.modalTransitionStyle = .coverVertical
-        moveCreatePageVC.modalPresentationStyle = .fullScreen
-        self.present(moveCreatePageVC, animated: true, completion: nil)
+//        guard let moveCreatePageVC = self.storyboard!.instantiateViewController(withIdentifier: "DetailPage") as? DetailPageViewController else {return}
+//        moveCreatePageVC.modalTransitionStyle = .coverVertical
+//        moveCreatePageVC.modalPresentationStyle = .fullScreen
+//        self.navigationController?.pushViewController(moveCreatePageVC, animated: true)
+
+        // 구글 검색용
+        let tabbar = UIStoryboard.init(name: "CreatePage", bundle: nil)
+         guard let tabBarController = tabbar.instantiateViewController(withIdentifier: "CreatePage")as? ViewController else {return}
+         
+         tabBarController.modalPresentationStyle = .fullScreen
+         self.present(tabBarController, animated: true, completion: nil)
     }
 }
+
 
 // TableView Extension
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {

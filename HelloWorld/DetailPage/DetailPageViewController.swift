@@ -123,9 +123,7 @@ extension DetailPageViewController :UITableViewDelegate, UITableViewDataSource{
     
             return cell
     }
-    
 }
-
 
 
 
