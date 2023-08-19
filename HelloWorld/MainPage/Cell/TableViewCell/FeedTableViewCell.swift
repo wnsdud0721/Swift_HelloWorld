@@ -36,7 +36,7 @@ class FeedTableViewCell: UITableViewCell {
     func feedSetUp(with feedElement: feedList) {
         feedTitle.text = feedElement.title
         feedContent.text = feedElement.content
-        feedCoverImage.image = UIImage(named: feedElement.feedImageName)
+        feedCoverImage.image = feedElement.feedImageName as? UIImage
         feedUserProfile.image = UIImage(named: feedElement.userProfile)
         feedUserName.text = feedElement.userName
     }

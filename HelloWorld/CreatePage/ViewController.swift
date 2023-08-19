@@ -12,6 +12,8 @@ protocol FeedDataDelegate: AnyObject {
     func didSubmitData(image: UIImage, title: String, content: String)
 }
 
+
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var selectImageButton: UIButton!
@@ -78,15 +80,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            b = editedImage
             imageView.image = editedImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = originalImage
         }
         dismiss(animated: true, completion: nil)
+        print("@@@@@@@@@@@@@@@@@@@")
+        print(b)
     }
+    
+    @IBOutlet weak var testLabel: UILabel!
+   
+//    C433EBC8-D8C2-4EF5-9D51-4F10D4317COC.jpg
     
     @IBAction func sendButtonTab(_ sender: UIBarButtonItem) {
         feedCount += 1
+        
+ 
         // 이미지,타이틀텍스트,콘텐트텍스트 입력시 얻어오기
         guard let image = imageView.image,
               let title = titleTextView.text,
@@ -99,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         //새로운feed객체생성&유저디폴트 사용자이름 가져와 해당 사용자에게 피드 추가
 
-        let newFeed = feedList(title: "\(titleTextView.text!)", content: "\(contentTextView.text!)", feedImageName: "사진", commentIndex: [comment(commentContent: "댓글", userName: "김미영", userImage: "김미영 사진")], userProfile: "사진", userName: userInfoData[0].userName)
+        let newFeed = feedList(title: "\(titleTextView.text!)", content: "\(contentTextView.text!)", feedImageName: b as! UIImage, commentIndex: [comment(commentContent: "댓글", userName: "김미영", userImage: "김미영 사진")], userProfile: "사진", userName: userInfoData[0].userName)
         
    
         appendFeedToUser(userName: userInfoData[0].userName, newFeed: newFeed)
@@ -145,6 +156,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         {
             let filename = path.appendingPathComponent(UUID().uuidString + ".jpg")
             try? data.write(to: filename)
+//            filename.lastPathComponent
+   
             return filename.lastPathComponent
         }
         return nil

@@ -17,7 +17,7 @@ class MyFeedCollectionViewCell: UICollectionViewCell {
     }
     
     func feedSetup(myFeedImage: feedList) {
-        feedImage.image = UIImage(named: myFeedImage.feedImageName)
+        feedImage.image = UIImage(named: myFeedImage.feedImageName as! String)
     }
 
 }

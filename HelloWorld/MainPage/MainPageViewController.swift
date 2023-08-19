@@ -39,6 +39,7 @@ class MainPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         mainPageTableView.reloadData()
+       
     }
     
     @IBAction func moveMyPage(_ sender: Any) {

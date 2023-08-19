@@ -42,7 +42,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="내용을 입력하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-Tt-Tml">
-                                <rect key="frame" x="45" y="584" width="296" height="213"/>
+                                <rect key="frame" x="45" y="584" width="296" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -87,6 +87,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJZ-Hm-fRp">
+                                <rect key="frame" x="25" y="719" width="316" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +102,7 @@
                         <outlet property="contentTextView" destination="IzL-Tt-Tml" id="Drc-H0-FWy"/>
                         <outlet property="imageView" destination="NHL-MR-fgf" id="aWI-gT-t15"/>
                         <outlet property="selectImageButton" destination="jJD-vP-IW4" id="RfB-U4-pxa"/>
+                        <outlet property="testLabel" destination="qJZ-Hm-fRp" id="vqL-NW-Lba"/>
                         <outlet property="titleTextView" destination="j13-4b-ITF" id="Uw1-dg-DwB"/>
                     </connections>
                 </viewController>

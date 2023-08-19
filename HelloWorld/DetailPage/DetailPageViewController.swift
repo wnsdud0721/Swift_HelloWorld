@@ -22,7 +22,7 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
     @IBOutlet weak var userImage: UIButton!
     
     @IBOutlet weak var feedImage: UIImageView!
-
+    
     @IBOutlet weak var commentButton: UIButton!
   
     @IBOutlet weak var feedContent: UILabel!
@@ -63,7 +63,8 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
   
     
     override func viewDidLoad() {
-        
+//        feedImage.image = b as! UIImage
+        feedImage.image = userInfoData[0].myFeedList[dataIndex[1]].feedImageName as? UIImage
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
