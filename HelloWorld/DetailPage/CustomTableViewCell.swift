@@ -10,7 +10,9 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
+        userImageCell.layer.cornerRadius = userImageCell.frame.height/2
         super.awakeFromNib()
+        
     }
     
 
@@ -19,6 +21,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameCell: UILabel!
     
     
-  // 여긴 추가 안할거야
-    
+  
 }
+
+

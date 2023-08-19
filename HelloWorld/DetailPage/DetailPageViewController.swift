@@ -19,7 +19,8 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
     
     @IBOutlet weak var userName: UILabel!
     
-    @IBOutlet weak var userImage: UIButton!
+
+    @IBOutlet weak var userImageDe: UIImageView!
     
     @IBOutlet weak var feedImage: UIImageView!
     
@@ -63,7 +64,10 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
   
     
     override func viewDidLoad() {
+       
+        userImageDe.layer.cornerRadius = userImageDe.frame.height/2
 //        feedImage.image = b as! UIImage
+        userImageDe.image = userInfoData[0].myFeedList[dataIndex[1]].userProfile
         feedImage.image = userInfoData[0].myFeedList[dataIndex[1]].feedImageName
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -76,9 +80,10 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
         
         // 라이크 버튼 핸들링
         if (likeButtonBool == false) {
-            likeButtonRef.backgroundColor = .blue
+            likeButtonRef.setImage(UIImage(named: "like.empty"), for: .normal)
+      
         }else{
-            likeButtonRef.backgroundColor = .red
+            likeButtonRef.setImage(UIImage(named: "like.fill"), for: .normal)
         }
         
         // 화면 터치 시 키보드 내리기
@@ -119,7 +124,7 @@ extension DetailPageViewController :UITableViewDelegate, UITableViewDataSource{
             let index = indexPath.row
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableViewCell
-    
+        cell.userImageCell.image  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].userImage
         
             cell.userNameCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].userName
             cell.commentCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].commentContent
