@@ -11,19 +11,45 @@
         <!--My Page View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="MyPageViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" id="Y6W-OH-hqX" customClass="MyPageViewController" customModule="HelloWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Sh-fRu">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hkM-Sh-fRu">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0s9-iq-dDn">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="34"/>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Hello World" id="ndj-Zp-9eb">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Ok6-4d-oLR">
+                                            <connections>
+                                                <action selector="dismissMyPage:" destination="Y6W-OH-hqX" id="1cc-GK-396"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hkM-Sh-fRu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="D5J-PQ-uGZ"/>
+                            <constraint firstItem="0s9-iq-dDn" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Jz8-Gx-H7Q"/>
+                            <constraint firstItem="0s9-iq-dDn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="goF-cf-EfP"/>
+                            <constraint firstItem="hkM-Sh-fRu" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="hCQ-0D-0Rn"/>
+                            <constraint firstItem="hkM-Sh-fRu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nR7-aY-aW6"/>
+                            <constraint firstItem="hkM-Sh-fRu" firstAttribute="top" secondItem="0s9-iq-dDn" secondAttribute="bottom" id="xF3-dX-Cii"/>
+                            <constraint firstItem="0s9-iq-dDn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yeR-Ws-kRz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="myPageTableView" destination="hkM-Sh-fRu" id="mod-Ir-P91"/>
@@ -35,6 +61,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

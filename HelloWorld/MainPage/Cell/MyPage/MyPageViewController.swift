@@ -7,19 +7,24 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController {
+class MyPageViewController: UIViewController, UINavigationControllerDelegate {
     
 
 
 
  
+    @IBAction func dismissMyPage(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
 
+    }
+    
     @IBOutlet weak var myPageTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         myPageTableView.dataSource = self
+        myPageTableView.delegate = self
         myPageTableView.delegate = self
         
         let myProfileNib = UINib(nibName: "MyProfileTableViewCell", bundle: nil)
@@ -31,28 +36,42 @@ class MyPageViewController: UIViewController {
         let feedNib = UINib(nibName: "MyFeedTableViewCell", bundle: nil)
         myPageTableView.register(feedNib, forCellReuseIdentifier: "MyFeedTableViewCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        myPageTableView.reloadData()
+    }
 }
 
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
+    @objc func a() {
+        let editMy = UIStoryboard.init(name: "EditMyPage", bundle: nil)
+         guard let editMyController = editMy.instantiateViewController(withIdentifier: "EditMyPage")as? EditMyPageViewController else {return}
+
+        editMyController.modalPresentationStyle = .fullScreen
+        self.present(editMyController, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+
         if indexPath.row == 0 {
             guard let myProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "MyProfileTableViewCell", for: indexPath) as? MyProfileTableViewCell else {
                 return UITableViewCell()
             }
             myProfileTableView.myProfileSetup(myInfo: userInfoData[0])
-            
+            myProfileTableView.EditMyPageButton.tag = indexPath.row
+            myProfileTableView.EditMyPageButton.addTarget(self, action: #selector(a), for: .touchUpInside)
+
             return myProfileTableView
         }
         else if indexPath.row == 1 {
             guard let friendProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell", for: indexPath) as? FriendTableViewCell else {
                 return UITableViewCell()
             }
-            
-            
+
+
             return friendProfileTableView
         }
         else {
@@ -61,6 +80,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return feedTableView
         }
+   
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

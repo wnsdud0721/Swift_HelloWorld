@@ -86,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func sendButtonTab(_ sender: UIBarButtonItem) {
+        feedCount += 1
         // 이미지,타이틀텍스트,콘텐트텍스트 입력시 얻어오기
         guard let image = imageView.image,
               let title = titleTextView.text,
@@ -97,14 +98,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         //새로운feed객체생성&유저디폴트 사용자이름 가져와 해당 사용자에게 피드 추가
-        let newFeed = feedList(title: "타이틀", content: "컨텐트", feedImageName: "사진", commentIndex: [comment(commentContent: "댓글", userName: "김미영")], userProfile: "사진", userName: "김민수")
+
+        let newFeed = feedList(title: "\(titleTextView.text!)", content: "\(contentTextView.text!)", feedImageName: "사진", commentIndex: [comment(commentContent: "댓글", userName: "김미영", userImage: "김미영 사진")], userProfile: "사진", userName: userInfoData[0].userName)
         
-        if let currentUserName = UserDefaults.standard.string(forKey: "currentUserName") {
-            appendFeedToUser(userName: currentUserName, newFeed: newFeed)
-        } else {
-            //사용자 찾을 수 없는 경우
-            print("Current user not set!")
-        }
+   
+        appendFeedToUser(userName: userInfoData[0].userName, newFeed: newFeed)
+        
+        
+//        guard let convertedFeed = convertFeedToFeedList(feed: newFeed) else {
+//            print("Failed to convert feed to feedList!")
+//            return
+//        }
+        
+        
+        
+        
+        
         
         saveDataToUserDefaults(image: image, title: title, content: content)
         delegate?.didSubmitData(image: image, title: title, content: content)
@@ -114,16 +123,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             delegate?.didSubmitData(image: image, title: title, content: content)
         }
         resetInputFields()
-    }
-     //이미지 저장&해당파일 가져옴
-    func convertFeedToFeedList(feed: feedList ) -> feedList? {
-        guard saveImageAndGetFilename(image: UIImage(named: feed.feedImageName)!) != nil else {
-            return nil
-        }
-
+        self.presentingViewController?.dismiss(animated: true)
         
-        return feedList(title: feed.title, content: feed.content, feedImageName: feed.feedImageName, commentIndex: [] , userProfile: userInfoData[0].profileImageName, userName: userInfoData[0].userName)
+
     }
+    
+     //이미지 저장&해당파일 가져옴
+//    func convertFeedToFeedList(feed: feedList ) -> feedList? {
+//        guard saveImageAndGetFilename(image: UIImage(named: feed.feedImageName)!) != nil else {
+//            return nil
+//        }
+//
+//
+//        return feedList(title: feed.title, content: feed.content, feedImageName: feed.feedImageName, commentIndex: [] , userProfile: userInfoData[0].profileImageName, userName: userInfoData[0].userName)
+//    }
 
     // 이미지 저장&파일이름 반환
     func saveImageAndGetFilename(image: UIImage) -> String? {
@@ -138,14 +151,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func appendFeedToUser(userName: String, newFeed: feedList) {
-        guard let convertedFeed = convertFeedToFeedList(feed: newFeed) else {
-            print("Failed to convert feed to feedList!")
-            return
-        }
+//        guard let convertedFeed = convertFeedToFeedList(feed: newFeed) else {
+//            print("Failed to convert feed to feedList!")
+//            return
+//        }
+        userInfoData[0].myFeedList.insert(newFeed, at: 0)
         
 //        if let index =
 //            userInfoData.firstIndex(where: { $0.userName == userName }) {
-            userInfoData[0].myFeedList.append(convertedFeed)
+            
 //            print("New feed added to \(userName)'s feed list!")
 //        } else {
 //            print("\(userName) not found in userInfoData!")

@@ -12,8 +12,8 @@ class MainPageViewController: UIViewController {
     @IBOutlet var mainPageTableView: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        
+        
         // TableView 구분선 없애기
         mainPageTableView.separatorStyle = .none
         
@@ -33,8 +33,22 @@ class MainPageViewController: UIViewController {
         let seperateNib = UINib(nibName: "SeperateTableViewCell", bundle: nil)
         // TableView에 SeperateTableViewCell 등록
         mainPageTableView.register(seperateNib, forCellReuseIdentifier: "SeperateTableViewCell")
+        super.viewDidLoad()
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mainPageTableView.reloadData()
+    }
+    
+    @IBAction func moveMyPage(_ sender: Any) {
+        let tabMyPage = UIStoryboard.init(name: "MyPage", bundle: nil)
+         guard let MyPagController = tabMyPage.instantiateViewController(withIdentifier: "MyPage")as? MyPageViewController else {return}
+         
+        MyPagController.modalPresentationStyle = .fullScreen
+         self.present(MyPagController, animated: true, completion: nil)
+    }
+    
     @IBAction func moveCreatePageVC(_ sender: Any) {
 //        guard let moveCreatePageVC = self.storyboard!.instantiateViewController(withIdentifier: "DetailPage") as? DetailPageViewController else {return}
 //        moveCreatePageVC.modalTransitionStyle = .coverVertical
@@ -65,6 +79,19 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 각 cell이 어떻게 보여질 것인가
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        feedDetailButton
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Contents_UserInfoCell",for: indexPath) as! Contents_UserInfoCell
+//
+//         cell.mannerInfo.tag = indexPath.row
+//         cell.mannerInfo.addTarget(self, action: #selector(mannerClicked), for: .touchUpInside)
+//
+//         return cell
+        
+        
+        
+        
+        
         
         // 가장 윗줄에 story 보여주기
         if indexPath.row == 0 {
@@ -119,12 +146,23 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 1 {
-            guard let moveTestVC = self.storyboard?.instantiateViewController(identifier: "TestViewController") as? TestViewController else { return }
-            moveTestVC.modalTransitionStyle = .coverVertical
-            moveTestVC.modalPresentationStyle = .fullScreen
-            self.present(moveTestVC, animated: true, completion: nil)
             
-            moveTestVC.testLabel.text = userInfoData[0].myFeedList[indexPath.row - 2].title
+
+            dataIndex[1] = indexPath.row - 2
+            
+            let detail = UIStoryboard.init(name: "DetailPage", bundle: nil)
+             guard let detailController = detail.instantiateViewController(withIdentifier: "DetailPage")as? DetailPageViewController else {return}
+             
+            detailController.modalPresentationStyle = .fullScreen
+             self.present(detailController, animated: true, completion: nil)
+            
+            
+//            guard let moveTestVC = self.storyboard?.instantiateViewController(identifier: "TestViewController") as? TestViewController else { return }
+//            moveTestVC.modalTransitionStyle = .coverVertical
+//            moveTestVC.modalPresentationStyle = .fullScreen
+//            self.present(moveTestVC, animated: true, completion: nil)
+//
+//            moveTestVC.testLabel.text = userInfoData[0].myFeedList[indexPath.row - 2].title
         }
     }
 }

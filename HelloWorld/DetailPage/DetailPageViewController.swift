@@ -7,9 +7,12 @@
 
 import UIKit
 
-class DetailPageViewController: UIViewController {
+class DetailPageViewController: UIViewController , UINavigationControllerDelegate {
     
 
+    @IBAction func detailDissMiss(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
     
     var likeButtonBool = false
     
@@ -40,14 +43,15 @@ class DetailPageViewController: UIViewController {
     
     
     @IBOutlet weak var commentTextFeild: UITextView!
-    
+//    myFeedList[dataIndex[1]].userName
     
     @IBAction func commentDonButton(_ sender: Any) {
         if (commentTextFeild.text == "") {
 
         }else
         {
-            userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.append(comment (commentContent : "\(commentTextFeild.text!)", userName : "\(userInfoData[dataIndex[0]].userName)"))
+            // 임시 댓글 사진
+            userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.append(comment (commentContent : "\(commentTextFeild.text!)", userName : "\(userInfoData[dataIndex[0]].userName)" , userImage : "\(userInfoData[dataIndex[0]].profileImageName)"))
         }
         commentTextFeild.text = ""
 
@@ -65,7 +69,7 @@ class DetailPageViewController: UIViewController {
         tableView.dataSource = self
         feedContent.text = "\(userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].content)"
         feedContent.sizeThatFits(view.frame.size)
-        userName.text = userInfoData[dataIndex[0]].userName
+        userName.text = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].userName
         commentTextFeild.layer.borderWidth = 1.0
         commentTextFeild.layer.cornerRadius = 5
         

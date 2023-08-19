@@ -16,7 +16,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var feedContent: UILabel!
     @IBOutlet var feedLikeBtn: UIButton!
     
-//    class UserInfoList {
+    @IBOutlet weak var feedDetailButton: UIButton!
+    //    class UserInfoList {
 //        var userName : String
 //        var profileImageName :String
 //        var friend : [Friend]?

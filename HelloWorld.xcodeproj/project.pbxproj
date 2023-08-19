@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1059B3322A8E01C000023E1A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059B3312A8E01C000023E1A /* TestViewController.swift */; };
 		1059B3352A8E02A800023E1A /* SeperateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1059B3332A8E02A800023E1A /* SeperateTableViewCell.swift */; };
 		1059B3362A8E02A800023E1A /* SeperateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1059B3342A8E02A800023E1A /* SeperateTableViewCell.xib */; };
-		10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */; };
 		10D0948A2A8C686600E54766 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D094882A8C686600E54766 /* FeedTableViewCell.swift */; };
 		10D0948B2A8C686600E54766 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D094892A8C686600E54766 /* FeedTableViewCell.xib */; };
 		10D0948E2A8C92A000E54766 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0948C2A8C92A000E54766 /* StoryTableViewCell.swift */; };
@@ -31,6 +29,7 @@
 		AB0BE5D02A8F45850028A1E1 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BE5CF2A8F45850028A1E1 /* DetailPageViewController.swift */; };
 		AB0BE5D22A8F45E70028A1E1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BE5D12A8F45E70028A1E1 /* CustomTableViewCell.swift */; };
 		AB0BE6122A8F5D450028A1E1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BE6112A8F5D450028A1E1 /* Data.swift */; };
+		ABC187932A8FA97C0070BC80 /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC187922A8FA97C0070BC80 /* EditMyPageViewController.swift */; };
 		D64274942A8F8C5000885344 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64274852A8F8C5000885344 /* FriendCollectionViewCell.swift */; };
 		D64274952A8F8C5000885344 /* FriendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64274862A8F8C5000885344 /* FriendCollectionViewCell.xib */; };
 		D64274962A8F8C5000885344 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64274872A8F8C5000885344 /* FriendTableViewCell.swift */; };
@@ -46,10 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1059B3312A8E01C000023E1A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		1059B3332A8E02A800023E1A /* SeperateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeperateTableViewCell.swift; path = HelloWorld/MainPage/Cell/TableViewCell/SeperateTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		1059B3342A8E02A800023E1A /* SeperateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SeperateTableViewCell.xib; path = HelloWorld/MainPage/Cell/TableViewCell/SeperateTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		10D094882A8C686600E54766 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		10D094892A8C686600E54766 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		10D0948C2A8C92A000E54766 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +69,7 @@
 		AB0BE5CF2A8F45850028A1E1 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		AB0BE5D12A8F45E70028A1E1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		AB0BE6112A8F5D450028A1E1 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		ABC187922A8FA97C0070BC80 /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
 		D64274852A8F8C5000885344 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		D64274862A8F8C5000885344 /* FriendCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCollectionViewCell.xib; sourceTree = "<group>"; };
 		D64274872A8F8C5000885344 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,9 +166,7 @@
 			children = (
 				10D094872A8C683900E54766 /* Cell */,
 				10D534042A89FE8800A7D17A /* MainPage.storyboard */,
-				1059B3312A8E01C000023E1A /* TestViewController.swift */,
 				10D29B7E2A8A23D300AEF72F /* MainPageViewController.swift */,
-				10CAA8162A8DB19200AAE44C /* CreatePageViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -198,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				10D534102A89FF1900A7D17A /* EditMyPage.storyboard */,
+				ABC187922A8FA97C0070BC80 /* EditMyPageViewController.swift */,
 			);
 			path = EditMyPage;
 			sourceTree = "<group>";
@@ -333,9 +330,8 @@
 			files = (
 				10D29B7F2A8A23D300AEF72F /* MainPageViewController.swift in Sources */,
 				D64274992A8F8C5000885344 /* MyProfileTableViewCell.swift in Sources */,
-				10CAA8172A8DB19200AAE44C /* CreatePageViewController.swift in Sources */,
-				1059B3322A8E01C000023E1A /* TestViewController.swift in Sources */,
 				AB0BE6122A8F5D450028A1E1 /* Data.swift in Sources */,
+				ABC187932A8FA97C0070BC80 /* EditMyPageViewController.swift in Sources */,
 				10D533F52A89FE6900A7D17A /* ViewController.swift in Sources */,
 				AB0BE5D02A8F45850028A1E1 /* DetailPageViewController.swift in Sources */,
 				AB0BE5D22A8F45E70028A1E1 /* CustomTableViewCell.swift in Sources */,

@@ -21,7 +21,6 @@ class StoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         // 프로필 원형으로 만들기
         storyUserProfile.layer.cornerRadius = storyUserProfile.frame.height/2
     }
