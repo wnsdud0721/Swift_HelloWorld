@@ -51,7 +51,7 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
         }else
         {
             // 임시 댓글 사진
-            userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.append(comment (commentContent : "\(commentTextFeild.text!)", userName : "\(userInfoData[dataIndex[0]].userName)" , userImage : "\(userInfoData[dataIndex[0]].profileImageName)"))
+            userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.append(comment (commentContent : "\(commentTextFeild.text!)", userName : "\(userInfoData[dataIndex[0]].userName)" , userImage : (userInfoData[dataIndex[0]].profileImageName as? UIImage)!))
         }
         commentTextFeild.text = ""
 
@@ -64,7 +64,7 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
     
     override func viewDidLoad() {
 //        feedImage.image = b as! UIImage
-        feedImage.image = userInfoData[0].myFeedList[dataIndex[1]].feedImageName as? UIImage
+        feedImage.image = userInfoData[0].myFeedList[dataIndex[1]].feedImageName
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self

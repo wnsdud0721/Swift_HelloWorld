@@ -21,6 +21,6 @@ class FriendCollectionViewCell: UICollectionViewCell {
     
     func friendSetup(friendInfo: Friend) {
         friendName.text = friendInfo.name
-        friendImage.image = UIImage(named: friendInfo.profileName)
+        friendImage.image = friendInfo.profileName
     }
 }

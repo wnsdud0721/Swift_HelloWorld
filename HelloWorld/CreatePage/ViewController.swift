@@ -110,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         //새로운feed객체생성&유저디폴트 사용자이름 가져와 해당 사용자에게 피드 추가
 
-        let newFeed = feedList(title: "\(titleTextView.text!)", content: "\(contentTextView.text!)", feedImageName: b as! UIImage, commentIndex: [comment(commentContent: "댓글", userName: "김미영", userImage: "김미영 사진")], userProfile: "사진", userName: userInfoData[0].userName)
+        let newFeed = feedList(title: "\(titleTextView.text!)", content: "\(contentTextView.text!)", feedImageName: b as! UIImage, commentIndex: [comment(commentContent: "댓글", userName: "김미영", userImage: UIImage(systemName: "person.circle")!)], userProfile: (userInfoData[0].profileImageName as? UIImage)!, userName: userInfoData[0].userName)
         
    
         appendFeedToUser(userName: userInfoData[0].userName, newFeed: newFeed)
@@ -120,11 +120,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            print("Failed to convert feed to feedList!")
 //            return
 //        }
-        
-        
-        
-        
-        
         
         saveDataToUserDefaults(image: image, title: title, content: content)
         delegate?.didSubmitData(image: image, title: title, content: content)

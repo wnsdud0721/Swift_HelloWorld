@@ -6,29 +6,99 @@
 //
 
 import UIKit
+import Photos
 
-class EditMyPageViewController: UIViewController {
+class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var myImage: UIImageView!
     
     @IBOutlet weak var editMyField: UITextField!
 
     @IBOutlet weak var editMyFieldInfo: UITextView!
     
+    let imagePicker = UIImagePickerController()
+    
+    @IBAction func selectedMyImage(_ sender: Any) {
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            showImagePicker()
+        case .denied, .restricted:
+            
+            break
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .authorized:
+                    DispatchQueue.main.async {
+                        self.showImagePicker()
+                    }
+                    
+                default:
+                    break
+                }
+            }
+        default:
+            break
+        }
+    }
+    
+    func showImagePicker() {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            b = editedImage
+            myImage.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            myImage.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
+        
+        print(myImage as Any)
+    }
+    
+
+    
 //    editMyFieldInfo
     @IBAction func editCompleButton(_ sender: Any) {
         userInfoData[0].userName = "\(editMyField.text!)"
         userInfoData[0].info = "\(editMyFieldInfo.text!)"
+        userInfoData[0].profileImageName = b
         self.presentingViewController?.dismiss(animated: true)
     }
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        imagePicker.delegate = self
+        
+        // 사진 원형
         editMyFieldInfo.layer.borderWidth = 1.0
         editMyFieldInfo.layer.cornerRadius = 5
+        
+        // 키보드 관련
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
          tap.cancelsTouchesInView = false
          view.addGestureRecognizer(tap)
     }
     
-    
+    func saveImageAndGetFilename(image: UIImage) -> String? {
+        if let data = image.jpegData(compressionQuality: 1.0),
+           let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        {
+            let filename = path.appendingPathComponent(UUID().uuidString + ".jpg")
+            try? data.write(to: filename)
+//            filename.lastPathComponent
+   
+            return filename.lastPathComponent
+        }
+        return nil
+    }
 }
+
 extension EditMyPageViewController : UITextViewDelegate {
  
     func textViewDidChange(_ textView: UITextView) {

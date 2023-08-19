@@ -14,11 +14,12 @@ var feedCount = 0
 
 class UserInfoList {
     var userName : String
-    var profileImageName :String
+    var profileImageName: Any
     var friend : [Friend]
     var info : String
     var myFeedList : [feedList]
-    init(userName: String, profileImageName: String, friend: [Friend], info: String, myFeedList: [feedList]) {
+    
+    init(userName: String, profileImageName: Any, friend: [Friend], info: String, myFeedList: [feedList]) {
         self.userName = userName
         self.profileImageName = profileImageName
         self.friend = friend
@@ -29,9 +30,9 @@ class UserInfoList {
 
 class Friend {
     var name: String
-    var profileName: String
+    var profileName: UIImage
     
-    init(name: String, profileName: String) {
+    init(name: String, profileName: UIImage) {
         self.name = name
         self.profileName = profileName
     }
@@ -41,13 +42,13 @@ class Friend {
 class feedList  {
     var title : String
     var content : String
-    var feedImageName : Any
+    var feedImageName : UIImage
     var commentIndex : [comment]
     
-    var userProfile: String
+    var userProfile: UIImage
     var userName: String
     
-    init(title: String, content: String, feedImageName: Any, commentIndex: [comment], userProfile: String, userName: String) {
+    init(title: String, content: String, feedImageName: UIImage, commentIndex: [comment], userProfile: UIImage, userName: String) {
         self.title = title
         self.content = content
         self.feedImageName = feedImageName
@@ -60,27 +61,27 @@ class feedList  {
 class comment  {
     var commentContent : String
     var userName : String
-    var userImage : String
-    init(commentContent: String, userName: String, userImage: String) {
+    var userImage : UIImage
+    
+    init(commentContent: String, userName: String, userImage: UIImage) {
         self.commentContent = commentContent
         self.userName = userName
         self.userImage = userImage
     }
-    
 }
-//<UIImage:0x600001982130 anonymous {859, 860} renderingMode=automatic(original)>
+
 
 var userInfoData : [UserInfoList] = [
-    UserInfoList(userName: "김민수", profileImageName: "사진", friend: [
-    Friend(name: "김도윤", profileName: "김도윤 사진"),Friend(name: "전상혁", profileName: "전상혁 사진"),Friend(name: "정동교", profileName: "정동교 사진"),Friend(name: "정하진", profileName: "정하진 사진"),Friend(name: "홍준영", profileName: "홍준영 사진")], info: "개발자가 되고 싶은 민수", myFeedList: [
-        feedList(title: "첫 게시글", content: "안녕하세요", feedImageName: UIImage(systemName: "bolt")!  , commentIndex: [
-            comment(commentContent: "첫 댓글", userName: "전상혁", userImage: "전상혁 사진")], userProfile: "김도윤 사진", userName: "김도윤"),
-        feedList(title: "두번째 게시글", content: "안녕하세요", feedImageName: UIImage(systemName: "bolt")!, commentIndex: [
-                comment(commentContent: "첫 댓글", userName: "홍준영", userImage: "홍준영 사진")], userProfile: "정동교 사진", userName: "정동교"),
-        feedList(title: "세번째 게시글", content: "안녕하세요", feedImageName: UIImage(systemName: "bolt")!, commentIndex: [
-                    comment(commentContent: "첫 댓글", userName: "정하진", userImage: "정하진 사진")], userProfile: "전상혁 사진", userName: "전상혁"),
-        feedList(title: "네번째 게시글", content: "안녕하세요", feedImageName: UIImage(systemName: "bolt")!, commentIndex: [
-                        comment(commentContent: "첫 댓글", userName: "김도윤", userImage: "김도윤 사진")], userProfile: "홍준영 사진", userName: "홍준영"),
-        feedList(title: "첫 게시글", content: "안녕하세요", feedImageName: UIImage(systemName: "bolt")!, commentIndex: [
-                            comment(commentContent: "첫 댓글", userName: "정동교", userImage: "정동교 사진")], userProfile: "정하진 사진", userName: "정하진")])
+    UserInfoList(userName: "김민수", profileImageName: UIImage(systemName: "person.circle") as Any, friend: [
+        Friend(name: "김도윤", profileName: UIImage(named: "몰티즈")!),Friend(name: "전상혁", profileName: UIImage(named: "스폰지밥")!),Friend(name: "정동교", profileName: UIImage(named: "모코코")!),Friend(name: "정하진", profileName: UIImage(named: "잔망루피")!),Friend(name: "홍준영", profileName: UIImage(named: "와다다곰")!)], info: "개발자가 되고 싶은 민수", myFeedList: [
+        feedList(title: "첫 게시글", content: "안녕하세요", feedImageName: UIImage(named: "홍진경1")!  , commentIndex: [
+            comment(commentContent: "첫 댓글", userName: "전상혁", userImage: UIImage(named: "스폰지밥")!)], userProfile: UIImage(named: "몰티즈")!, userName: "김도윤"),
+        feedList(title: "두번째 게시글", content: "안녕하세요", feedImageName: UIImage(named: "홍진경2")!, commentIndex: [
+                comment(commentContent: "첫 댓글", userName: "홍준영", userImage: UIImage(named: "와다다곰")!)], userProfile: UIImage(named: "모코코")!, userName: "정동교"),
+        feedList(title: "세번째 게시글", content: "안녕하세요", feedImageName: UIImage(named: "박명수1")!, commentIndex: [
+                    comment(commentContent: "첫 댓글", userName: "정하진", userImage: UIImage(named: "잔망루피")!)], userProfile: UIImage(named: "스폰지밥")!, userName: "전상혁"),
+        feedList(title: "네번째 게시글", content: "안녕하세요", feedImageName: UIImage(named: "박명수2")!, commentIndex: [
+                        comment(commentContent: "첫 댓글", userName: "김도윤", userImage: UIImage(named: "와다다곰")!)], userProfile: UIImage(named: "와다다곰")!, userName: "홍준영"),
+        feedList(title: "첫 게시글", content: "안녕하세요", feedImageName: UIImage(named: "박가영")!, commentIndex: [
+                            comment(commentContent: "첫 댓글", userName: "정동교", userImage: UIImage(named: "모코코")!)], userProfile: UIImage(named: "잔망루피")!, userName: "정하진")])
 ]

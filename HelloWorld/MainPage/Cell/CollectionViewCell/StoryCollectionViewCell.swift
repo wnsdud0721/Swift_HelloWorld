@@ -15,7 +15,7 @@ class StoryCollectionViewCell: UICollectionViewCell {
     
     func storySetUp(with storyElement: Friend) {
         storyUserName.text = storyElement.name
-        storyUserProfile.image = UIImage(named: storyElement.profileName)
+        storyUserProfile.image = storyElement.profileName
     }
     
     override func awakeFromNib() {

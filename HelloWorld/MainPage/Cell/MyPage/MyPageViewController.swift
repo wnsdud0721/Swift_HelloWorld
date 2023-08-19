@@ -36,6 +36,7 @@ class MyPageViewController: UIViewController, UINavigationControllerDelegate {
         let feedNib = UINib(nibName: "MyFeedTableViewCell", bundle: nil)
         myPageTableView.register(feedNib, forCellReuseIdentifier: "MyFeedTableViewCell")
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         myPageTableView.reloadData()
     }
@@ -60,9 +61,11 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             guard let myProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "MyProfileTableViewCell", for: indexPath) as? MyProfileTableViewCell else {
                 return UITableViewCell()
             }
-            myProfileTableView.myProfileSetup(myInfo: userInfoData[0])
+            myProfileTableView.myProfileSetup()
             myProfileTableView.EditMyPageButton.tag = indexPath.row
             myProfileTableView.EditMyPageButton.addTarget(self, action: #selector(a), for: .touchUpInside)
+            
+            myProfileTableView.selectionStyle = .none
 
             return myProfileTableView
         }
@@ -70,7 +73,8 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             guard let friendProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell", for: indexPath) as? FriendTableViewCell else {
                 return UITableViewCell()
             }
-
+            
+            friendProfileTableView.selectionStyle = .none
 
             return friendProfileTableView
         }
@@ -78,6 +82,9 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             guard let feedTableView = myPageTableView.dequeueReusableCell(withIdentifier: "MyFeedTableViewCell", for: indexPath) as? MyFeedTableViewCell else {
                 return UITableViewCell()
             }
+            
+            feedTableView.selectionStyle = .none
+            
             return feedTableView
         }
    
