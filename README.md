@@ -17,13 +17,29 @@
 
 #### 각 페이지 이미지
 - MainPage
-- 
+  
+  <img src = "https://github.com/wnsdud0721/Swift_HelloWorld/assets/92636626/399b83cc-f3dc-4b80-86c5-315808ce145f" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/7d03fb05-dc32-4760-bfba-3ba1199dfecc" width = "25%" height = "25%">
+
 - DetailPage
+
+  <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/195a8060-a600-4c1e-8b03-1b1f1c872de5" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/38fa2db3-063a-4c3e-8664-1e86c4b142bb" width = "25%" height = "25%">
+  
 - CreatePage
+
+  <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/d5b1e40c-aa4e-4066-ac51-7732413d2250" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/b4cb2b60-bcc0-4ab8-9839-aeadfe7dfd80" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/44a515f9-34d6-4555-966c-1240cd1bbc99" width = "25%" height = "25%">
+  
 - MyPage
+
+  <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/acfe3ac8-ed39-4c16-923c-78fe54447cca" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/f7d0e434-52c9-48a3-9b33-874522162373" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/cf95ef49-7551-46b4-b665-02d45710e390" width = "25%" height = "25%">
+  
 - MyEditPage
 
+  <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/c05e8da7-86d9-4881-a02e-fc9ebf049066" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/d629d6e5-dbd3-4cdb-bf21-8599b271195e" width = "25%" height = "25%"> <img src = "https://github.com/wnsdud0721/Swift_Memo/assets/92636626/463f45ce-a2f6-4136-bf01-13bedfd0b9ac" width = "25%" height = "25%">
+
 #### 앱 시연 영상
+- [내일배움캠프 iOS B반 12조 유튜브 링크](https://www.youtube.com/watch?v=bPPQphXAswA&list=LL&index=1)
+
+
 
 ### ✅ Keep
 
