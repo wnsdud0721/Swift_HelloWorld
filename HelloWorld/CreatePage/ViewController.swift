@@ -86,8 +86,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imageView.image = originalImage
         }
         dismiss(animated: true, completion: nil)
-        print("@@@@@@@@@@@@@@@@@@@")
-        print(b)
     }
     
     @IBOutlet weak var testLabel: UILabel!

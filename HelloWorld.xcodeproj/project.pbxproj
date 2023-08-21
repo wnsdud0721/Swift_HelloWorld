@@ -237,8 +237,8 @@
 			children = (
 				D642748F2A8F8C5000885344 /* MyFeedCollectionViewCell.swift */,
 				D64274902A8F8C5000885344 /* MyFeedCollectionViewCell.xib */,
-				D64274912A8F8C5000885344 /* MyFeedTableViewCell.xib */,
 				D64274922A8F8C5000885344 /* MyFeedTableViewCell.swift */,
+				D64274912A8F8C5000885344 /* MyFeedTableViewCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";

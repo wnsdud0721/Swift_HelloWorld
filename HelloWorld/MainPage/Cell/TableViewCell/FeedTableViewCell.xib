@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="540"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile1" translatesAutoresizingMaskIntoConstraints="NO" id="5Sx-6o-mvx">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="와다다곰" translatesAutoresizingMaskIntoConstraints="NO" id="5Sx-6o-mvx">
                         <rect key="frame" x="13" y="8" width="36" height="36"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -27,7 +28,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feed1" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-mf-3aP">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="홍진경1" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-mf-3aP">
                         <rect key="frame" x="0.0" y="52" width="393" height="393"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -55,19 +56,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akK-SS-Zla">
-                        <rect key="frame" x="0.0" y="52" width="393" height="393"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain"/>
-                    </button>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="feedContent" destination="N2o-2e-mlG" id="dEY-6p-WOJ"/>
                 <outlet property="feedCoverImage" destination="h9S-mf-3aP" id="LVG-px-g48"/>
-                <outlet property="feedDetailButton" destination="akK-SS-Zla" id="9Tq-LA-GDk"/>
                 <outlet property="feedLikeBtn" destination="CeO-ce-hNs" id="iCC-yH-U5d"/>
                 <outlet property="feedTitle" destination="GL9-DN-fe2" id="CQ3-k5-8m8"/>
                 <outlet property="feedUserName" destination="yzM-xN-ynq" id="IqU-wp-tGw"/>
@@ -77,8 +71,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="feed1" width="1200" height="630"/>
         <image name="like.empty" width="24" height="24"/>
-        <image name="profile1" width="500" height="368"/>
+        <image name="와다다곰" width="1131" height="1159"/>
+        <image name="홍진경1" width="363" height="363"/>
     </resources>
 </document>

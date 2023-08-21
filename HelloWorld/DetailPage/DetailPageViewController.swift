@@ -86,6 +86,10 @@ class DetailPageViewController: UIViewController , UINavigationControllerDelegat
             likeButtonRef.setImage(UIImage(named: "like.fill"), for: .normal)
         }
         
+        if userImageDe.image == UIImage(systemName: "person.circle") {
+            userImageDe.tintColor = UIColor.lightGray
+        }
+        
         // 화면 터치 시 키보드 내리기
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
          tap.cancelsTouchesInView = false
@@ -113,25 +117,29 @@ class ContentWrappingTableView: UITableView{
 
 
 extension DetailPageViewController :UITableViewDelegate, UITableViewDataSource{
-     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.count
-       }
-   
-
+        return userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex.count
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-            let index = indexPath.row
-    
+        
+        let index = indexPath.row
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableViewCell
         cell.userImageCell.image  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].userImage
         
-            cell.userNameCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].userName
-            cell.commentCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].commentContent
+        cell.userNameCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].userName
+        cell.commentCell.text  = userInfoData[dataIndex[0]].myFeedList[dataIndex[1]].commentIndex[index].commentContent
         cell.commentCell.sizeToFit()
         cell.userNameCell.sizeToFit()
-    
-            return cell
+        
+        if cell.userImageCell.image == UIImage(systemName: "person.circle") {
+            cell.userImageCell.tintColor = UIColor.lightGray
+        }
+        
+        return cell
     }
 }
 
@@ -150,10 +158,7 @@ extension DetailPageViewController : UITextViewDelegate {
     
     // 키보드 올라올 시 뷰 올리기 분석
     override func viewWillAppear(_ animated: Bool) {
-        // 옵져버를 등록
-        // 옵저버 대상 self
-        // 옵져버 감지시 실행 함수
-        // 옵져버가 감지할 것
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

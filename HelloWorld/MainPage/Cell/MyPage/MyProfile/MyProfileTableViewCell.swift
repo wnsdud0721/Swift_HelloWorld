@@ -24,6 +24,7 @@ class MyProfileTableViewCell: UITableViewCell {
         userName.text = userInfoData[0].userName
         
         userImage.image = userInfoData[0].profileImageName as? UIImage
+        userImage.tintColor = UIColor.lightGray
         
         postCount.text = "\(feedCount)"
         userInfo.text = userInfoData[0].info

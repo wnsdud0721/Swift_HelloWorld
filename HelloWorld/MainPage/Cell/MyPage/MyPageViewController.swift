@@ -43,9 +43,7 @@ class MyPageViewController: UIViewController, UINavigationControllerDelegate {
 }
 
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
+
     @objc func a() {
         let editMy = UIStoryboard.init(name: "EditMyPage", bundle: nil)
          guard let editMyController = editMy.instantiateViewController(withIdentifier: "EditMyPage")as? EditMyPageViewController else {return}
@@ -54,9 +52,12 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(editMyController, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-
         if indexPath.row == 0 {
             guard let myProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "MyProfileTableViewCell", for: indexPath) as? MyProfileTableViewCell else {
                 return UITableViewCell()
@@ -69,6 +70,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
 
             return myProfileTableView
         }
+        
         else if indexPath.row == 1 {
             guard let friendProfileTableView = myPageTableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell", for: indexPath) as? FriendTableViewCell else {
                 return UITableViewCell()
@@ -78,6 +80,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
 
             return friendProfileTableView
         }
+        
         else {
             guard let feedTableView = myPageTableView.dequeueReusableCell(withIdentifier: "MyFeedTableViewCell", for: indexPath) as? MyFeedTableViewCell else {
                 return UITableViewCell()
