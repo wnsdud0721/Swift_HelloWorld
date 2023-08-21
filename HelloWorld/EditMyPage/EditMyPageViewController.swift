@@ -18,6 +18,8 @@ class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegat
     
     let imagePicker = UIImagePickerController()
     
+    var isImageChanged = false
+    
     @IBAction func selectedMyImage(_ sender: Any) {
         let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         switch photoAuthorizationStatus {
@@ -53,6 +55,7 @@ class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegat
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             b = editedImage
             myImage.image = editedImage
+            isImageChanged = true
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             myImage.image = originalImage
         }
@@ -61,15 +64,33 @@ class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegat
         print(myImage as Any)
     }
     
-
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
 //    editMyFieldInfo
     @IBAction func editCompleButton(_ sender: Any) {
-        userInfoData[0].userName = "\(editMyField.text!)"
-        userInfoData[0].info = "\(editMyFieldInfo.text!)"
-        userInfoData[0].profileImageName = b
+        
+        if editMyField.text?.isEmpty == false, editMyFieldInfo.text.isEmpty == false, isImageChanged {
+            userInfoData[0].userName = "\(editMyField.text!)"
+            userInfoData[0].info = "\(editMyFieldInfo.text!)"
+            userInfoData[0].profileImageName = b
+        }
+        
+        else {
+            showAlert(message: "이름, 소개 및 이미지를 모두 입력해주세요.")
+            return
+        }
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    @IBAction func editCancelButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
